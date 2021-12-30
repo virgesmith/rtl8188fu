@@ -18,6 +18,19 @@ For Kernel 4.15.x ~ 5.15.x (Linux Mint, Ubuntu or Debian Derivatives)
 
 `sudo cp ./rtl8188fu-arm/firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/`
 
+### What I did
+
+```sh
+git clone -b arm https://github.com/kelebek333/rtl8188fu rtl8188fu-arm
+cd rtl8188fu-arm/
+ARCH=arm make
+sudo MODULE_NAME=rtl8188fu make install
+cp firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/
+echo 'alias usb:v0BDApF179d*dc*dsc*dp*icFFiscFFipFFin* rtl8188fu' | sudo tee /etc/modprobe.d/r8188eu-blacklist.conf
+sudo shutdown -h now
+```
+...and it worked!
+
 ------------------
 
 ## Configuration

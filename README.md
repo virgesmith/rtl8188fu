@@ -20,17 +20,22 @@ For Kernel 4.15.x ~ 5.15.x (Linux Mint, Ubuntu or Debian Derivatives)
 
 ### What I did, loosely based on the above
 
+On a Raspberry Pi model A+ running Raspbian bullseye with `build-essential` (gcc 10.2.1) and `raspberrypi-kernel-headers` (kernel 5.10.63+ armv6l) installed. Note:
+
+- `ARCH` needs to be overridden from `armv6l` (which is not recognised) to just `arm`
+- `MODULE_NAME` needs to be explicitly set for some reason
+
 ```sh
 git clone -b arm https://github.com/kelebek333/rtl8188fu rtl8188fu-arm
 cd rtl8188fu-arm/
-ARCH=arm make
-sudo MODULE_NAME=rtl8188fu make install
+ARCH=arm make # override ARCH
+sudo MODULE_NAME=rtl8188fu make install # manually set MODULE_NAME
 cp firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/
 echo 'alias usb:v0BDApF179d*dc*dsc*dp*icFFiscFFipFFin* rtl8188fu' | sudo tee /etc/modprobe.d/r8188eu-blacklist.conf
 sudo shutdown -h now
 ```
 
-Inserted wifi dongle and rebooted... and it worked!
+Inserted wifi dongle, booted... and it worked!
 
 ------------------
 

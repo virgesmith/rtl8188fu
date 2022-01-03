@@ -18,7 +18,7 @@ For Kernel 4.15.x ~ 5.15.x (Linux Mint, Ubuntu or Debian Derivatives)
 
 `sudo cp ./rtl8188fu-arm/firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/`
 
-### What I did
+### What I did, loosely based on the above
 
 ```sh
 git clone -b arm https://github.com/kelebek333/rtl8188fu rtl8188fu-arm
@@ -29,7 +29,8 @@ cp firmware/rtl8188fufw.bin /lib/firmware/rtlwifi/
 echo 'alias usb:v0BDApF179d*dc*dsc*dp*icFFiscFFipFFin* rtl8188fu' | sudo tee /etc/modprobe.d/r8188eu-blacklist.conf
 sudo shutdown -h now
 ```
-...and it worked!
+
+Inserted wifi dongle and rebooted... and it worked!
 
 ------------------
 

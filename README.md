@@ -1,4 +1,4 @@
-For Kernel 4.15.x ~ 5.15.x (Linux Mint, Ubuntu or Debian Derivatives)
+For Kernel 4.15.x ~ 5.17.x (Linux Mint, Ubuntu or Debian Derivatives)
 
 ------------------
 
@@ -61,7 +61,7 @@ Run following commands for disabling MAC Address Spoofing (Note: This is not nee
 
 `echo -e "[device]\nwifi.scan-rand-mac-address=no" | sudo tee /etc/NetworkManager/conf.d/disable-random-mac.conf`
 
-#### Blacklist for kernel 5.15 and newer
+#### Blacklist for kernel 5.15 and newer (No needed for kernel 5.17 and up)
 
 If you are using kernel 5.15 and newer, you must create a configuration file with following commands for preventing to conflict rtl8188fu module with built-in r8188eu module.
 
